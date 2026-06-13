@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Feedback | Waterloo Food Bar</title>
+<meta name="description" content="Tell us how we can do better at Waterloo Food Bar.">
+<meta name="theme-color" content="#1c1815">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23c8432a'/><text x='50' y='70' font-size='62' text-anchor='middle' fill='white' font-family='Georgia,serif' font-weight='700'>W</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="review-wrap">
+  <div class="review-card" style="max-width:600px;text-align:left">
+    <div style="text-align:center">
+      <div class="dot">W</div>
+      <h1 style="text-align:center">Tell us how we can do better</h1>
+      <p style="text-align:center">Sorry it wasn't a five-star feed. Your honest feedback goes straight to Jo — we read every message and we'll make it right.</p>
+    </div>
+
+    <form action="https://formsubmit.co/jowanhalla@gmail.com" method="POST" id="pform" style="margin-top:24px">
+      <input type="hidden" name="_subject" value="Private feedback from Waterloo Food Bar website">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <div class="field">
+        <label for="pname">Your name</label>
+        <input type="text" id="pname" name="Name" required placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="pemail">Email</label>
+        <input type="email" id="pemail" name="Email" required placeholder="you@email.com">
+      </div>
+      <div class="field">
+        <label for="prating">Your rating</label>
+        <input type="text" id="prating" name="Rating" readonly value="">
+      </div>
+      <div class="field">
+        <label for="pfeedback">What let us down?</label>
+        <textarea id="pfeedback" name="Feedback" required placeholder="Tell us what happened and how we can fix it..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Feedback</button>
+    </form>
+
+    <div class="form-success" id="psuccess">
+      <div class="ok">✓</div>
+      <h3>Thanks for letting us know</h3>
+      <p>Your feedback is on its way to Jo. We genuinely appreciate you giving us the chance to make it right.</p>
+      <a class="back-link" href="index.html">← Back to Waterloo Food Bar</a>
+    </div>
+
+    <p style="text-align:center;margin-top:20px" id="pback"><a class="back-link" href="index.html">← Back to Waterloo Food Bar</a></p>
+  </div>
+</div>
+<script>
+  // Pre-fill rating from URL
+  var params = new URLSearchParams(window.location.search);
+  var rating = params.get('rating');
+  var ratingField = document.getElementById('prating');
+  if (rating) { ratingField.value = rating + ' star' + (rating === '1' ? '' : 's'); }
+  else { ratingField.value = 'Not rated'; }
+
+  // Show success state on submit (AJAX to FormSubmit so we can show inline success)
+  var form = document.getElementById('pform');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch('https://formsubmit.co/ajax/jowanhalla@gmail.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    }).then(function(){ showSuccess(); }).catch(function(){ showSuccess(); });
+  });
+  function showSuccess(){
+    form.style.display = 'none';
+    document.getElementById('pback').style.display = 'none';
+    document.getElementById('psuccess').classList.add('show');
+  }
+</script>
+</body>
+</html>
