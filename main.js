@@ -1,4 +1,4 @@
-// Waterloo Food Bar — shared interactions
+// Waterloo Food Bar, shared interactions
 
 // Intro overlay
 window.addEventListener('load', () => {
@@ -14,7 +14,7 @@ if (nav) {
   window.addEventListener('scroll', onScroll, { passive: true });
 }
 
-// Mobile nav toggle — animated X, backdrop, scroll lock, tap-outside/esc to close
+// Mobile nav toggle, animated X, backdrop, scroll lock, tap-outside/esc to close
 const toggle = document.querySelector('.nav-toggle');
 const links = document.querySelector('.nav-links');
 if (toggle && links) {
@@ -67,7 +67,7 @@ document.querySelectorAll('.js-year').forEach(el => el.textContent = new Date().
 // Hero Google reviews rotator (real reviews)
 (function () {
   var GR = [
-    { q: '"Their roast meat rolls are nice and filling — a good meal to keep you going."', by: 'Andrew Cotter · Local Guide' },
+    { q: '"Their roast meat rolls are nice and filling, a good meal to keep you going."', by: 'Andrew Cotter · Local Guide' },
     { q: '"Best stop for a bacon and egg pie hot off the grill. Most of the kai is handmade and this team can cook."', by: 'Viliami Moheloa · Local Guide' },
     { q: '"Amazing food, constant foot traffic until they close around 3pm. Baking and food made on site."', by: 'Elsa K · Local Guide' },
     { q: '"Loved the sausage rolls, nice and juicy! Rolls packed with meat, veg and sauce. Great lunch."', by: 'Bradlee Spanyol · Google' },

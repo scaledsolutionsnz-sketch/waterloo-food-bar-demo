@@ -17,7 +17,7 @@
   <div class="review-card">
     <div class="dot">W</div>
     <h1>How was your feed?</h1>
-    <p>Tap a rating below — it only takes a second and it really helps a small local takeaway.</p>
+    <p>Tap a rating below, it only takes a second and it really helps a small local takeaway.</p>
     <div class="star-pick" id="stars">
       <button data-rating="5" aria-label="5 stars">★</button>
       <button data-rating="4" aria-label="4 stars">★</button>
@@ -26,11 +26,11 @@
       <button data-rating="1" aria-label="1 star">★</button>
     </div>
     <p class="review-hint">Choose 1 to 5 stars</p>
-    <a class="back-link" href="index.html">← Back to Waterloo Food Bar</a>
+    <a class="back-link" href="index.html">Back to Waterloo Food Bar</a>
   </div>
 </div>
 <script>
-  // 4–5 stars → Google review; 1–3 → private feedback form
+  // 4-5 stars Google review; 1-3 private feedback form
   var GOOGLE_REVIEW_URL = "https://g.page/r/PLACEHOLDER";
   document.querySelectorAll('#stars button').forEach(function(btn){
     btn.addEventListener('click', function(){
